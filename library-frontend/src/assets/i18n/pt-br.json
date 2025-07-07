@@ -1,0 +1,15 @@
+{
+    "NAVBAR": {
+        "REGISTER_BOOK": "Registre Seu Livro",
+        "BOOKS_CATALOG": "Catálogo de Livros",
+        "BOOKS_REPORT": "Relatório de Livros",
+        "PROFILE": "Perfil",
+        "LOGOUT": "Sair",
+        "PT_BR": "Português (BR)",
+        "EN_US": "Inglês (US)"
+    },
+    "HOME": {
+        "WELCOME_MESSAGE": "Bem-vindo ao MyLib",
+        "DESCRIPTION": "Este projeto é um aplicativo de Catálogo de Livros projetado para ajudar os usuários a navegar e gerenciar uma coleção de livros. Ele fornece informações detalhadas sobre cada livro, facilitando a busca, visualização e organização da sua biblioteca de forma eficiente."
+    }
+}

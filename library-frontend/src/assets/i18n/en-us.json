@@ -1,0 +1,15 @@
+{
+    "NAVBAR": {
+        "REGISTER_BOOK": "Register Your Book",
+        "BOOKS_CATALOG": "Books Catalog",
+        "BOOKS_REPORT": "Books Report",
+        "PROFILE": "Profile",
+        "LOGOUT": "Logout",
+        "PT_BR": "Portuguese (BR)",
+        "EN_US": "English (US)"
+    },
+    "HOME": {
+        "WELCOME_MESSAGE": "Welcome to MyLib",
+        "DESCRIPTION": "This project is a Library Catalog application designed to help users browse and manage a collection of books. It provides detailed information about each book, making it easy to search, view, and organize your library efficiently."
+    }
+}
