@@ -11,5 +11,35 @@
     "HOME": {
         "WELCOME_MESSAGE": "Bem-vindo ao MyLib",
         "DESCRIPTION": "Este projeto é um aplicativo de Catálogo de Livros projetado para ajudar os usuários a navegar e gerenciar uma coleção de livros. Ele fornece informações detalhadas sobre cada livro, facilitando a busca, visualização e organização da sua biblioteca de forma eficiente."
+    },
+    "REGISTER": {
+        "TITLE": "Registre Seu Livro",
+        "SUCCESS_MESSAGE": "Livro registrado com sucesso!",
+        "IMAGE_ERROR_MESSAGE": "Erro ao carregar a imagem. Por favor, selecione uma imagem válida.",
+        "ERROR_MESSAGE": "Erro ao registrar o livro. Por favor, tente novamente."
+    },
+    "BOOK": {
+        "TITLE": "Título",
+        "AUTHOR": "Autor",
+        "PUBLISHER": "Editora",
+        "YEAR": "Ano de Publicação",
+        "GENRE": "Gênero",
+        "SYNOPSIS": "Sinopse",
+        "COVER_IMAGE": "Imagem de Capa"
+    },
+    "PLACEHOLDER": {
+        "BOOK_TITLE": "O Pequeno Príncipe",
+        "BOOK_ISBN": "ISBN (10 ou 13 dígitos)",
+        "BOOK_AUTHOR": "Antoine de Saint-Exupéry",
+        "BOOK_PUBLISHER": "Escolha a editora",
+        "BOOK_YEAR": "1943",
+        "BOOK_GENRE": "Selecione o gênero",
+        "BOOK_SYNOPSIS": "A história segue um jovem príncipe que visita vários planetas, incluindo a Terra, e aborda temas de solidão, amizade, amor e perda. Apesar de seu estilo como livro infantil, O Pequeno Príncipe faz observações sobre a vida, os adultos e a natureza humana.",
+        "BOOK_COVER_IMAGE": "Carregue a imagem de capa"
+    },
+    "BUTTON": {
+        "SUBMIT": "Enviar",
+        "CANCEL": "Cancelar",
+        "CLEAR": "Limpar Campos"
     }
 }

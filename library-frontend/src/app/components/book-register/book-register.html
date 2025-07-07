@@ -1,1 +1,91 @@
-<p>book-register works!</p>
+<div class="text-center mb-4">
+    <h1>{{ "REGISTER.TITLE" | translate }}</h1>
+</div>
+
+<div class="row">
+    <form class="row gx-3 gy-2 align-items-center" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+        <div class="row mb-3">
+            <!-- O Sistema deverá permitir o cadastro de um livro, informando seu título, nº ISBN, gênero (select), autor, editora (select) e sinopse (máximo de 5000 caracteres), além da foto do livro (IFormFile). -->
+            <div class="col-8">
+                <label for="bookTitle">{{ "BOOK.TITLE" | translate }} *</label>
+                <input type="text" class="form-control" id="bookTitle" formControlName="title"
+                    placeholder="{{ 'PLACEHOLDER.BOOK_TITLE' | translate }}">
+            </div>
+
+            <div class="col-4">
+                <label for="bookAuthor">{{ "BOOK.AUTHOR" | translate }} *</label>
+                <input type="text" class="form-control" id="bookAuthor" formControlName="author"
+                    placeholder="{{ 'PLACEHOLDER.BOOK_AUTHOR' | translate }}">
+            </div>
+
+        </div>
+        <div class="row mb-3">
+            <div class="col-3">
+                <label for="bookIsbn">ISBN *</label>
+                <!-- ISBN mask for 10 digits (possibly containing X as final digit) or 13 digits -->
+                <input type="text" class="form-control" id="bookIbn" formControlName="isbn"
+                    mask="00-000-0000-A||000-00-000-0000-0" placeholder="{{ 'PLACEHOLDER.BOOK_ISBN' | translate }}">
+            </div>
+
+            <div class="col-3">
+                <label for="bookGenre">{{ "BOOK.GENRE" | translate }} *</label>
+                <select class="form-select" id="bookGenre" formControlName="genre">
+                    <option value="" disabled selected>{{ 'PLACEHOLDER.BOOK_GENRE' | translate }}</option>
+                    <!-- <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option> -->
+                </select>
+            </div>
+
+            <div class="col-3">
+                <label for="bookPublisher">{{ "BOOK.PUBLISHER" | translate }} *</label>
+                <select class="form-select" id="bookGenre" formControlName="genre">
+                    <option value="" disabled selected>{{ 'PLACEHOLDER.BOOK_PUBLISHER' | translate }}</option>
+                    <!-- <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option> -->
+                </select>
+            </div>
+
+            <div class="col-3">
+                <label for="bookYear">{{ "BOOK.YEAR" | translate }} *</label>
+                <input type="number" class="form-control" id="bookYear" formControlName="year"
+                    placeholder="{{ 'PLACEHOLDER.BOOK_YEAR' | translate }}">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-6">
+                <label for="coverImage">{{ "BOOK.COVER_IMAGE" | translate }} *</label>
+                <input type="file" class="form-control" id="coverImage" (change)="onFileSelected($event)"
+                    accept="image/*">
+
+                <div *ngIf="imagePreview()" class="mt-3 text-center">
+                    <div class="image-display-box">
+                        <img [src]="imagePreview()?.toString()" alt="Prévia da Imagem de Capa" class="img-thumbnail">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <label for="bookSynopsis">{{ "BOOK.SYNOPSIS" | translate }} *</label>
+                <textarea class="form-control" id="bookSynopsis" formControlName="synopsis"
+                    placeholder="{{ 'PLACEHOLDER.BOOK_SYNOPSIS' | translate }}"></textarea>
+            </div>
+        </div>
+
+        <div class="row mt-4 justify-content-end">
+            <div class="col-auto">
+                <button type="reset" class="btn btn-outline-secondary" (click)="onClearFields()">
+                    {{ "BUTTON.CLEAR" | translate }}
+                </button>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-danger ">
+                    {{ "BUTTON.CANCEL" | translate }}
+                </button>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-success" (click)="onSubmit()">
+                    {{ "BUTTON.SUBMIT" | translate }}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
