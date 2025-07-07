@@ -1,28 +1,32 @@
-# Library Catalog - Monolito
+# Library Catalog - Monolith
 
-Este é um projeto monolito que contém tanto o backend quanto o frontend da aplicação Library Catalog.
+**Language / Idioma:** [🇺🇸 English](#) | [🇧🇷 Português](README-pt-br.md)
 
-## Estrutura do Projeto
+This is a monolith project that contains both the backend and frontend of the Library Catalog application.
+
+## Project Structure
 
 ```
 library-catalog/
-├── library-backend/    # API .NET Core
-├── library-frontend/   # Aplicação Angular
+├── library-backend/    # .NET Core Web API
+├── library-frontend/   # Angular Application
 └── README.md
 ```
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 ### Backend (library-backend)
-- .NET Core
+- .NET Core 8+
 - ASP.NET Core Web API
+- Entity Framework Core
+- SQL Server
 
 ### Frontend (library-frontend)
 - Angular
 - TypeScript
 - HTML/CSS
 
-## Como Executar
+## How to Run
 
 ### Backend
 ```bash
@@ -37,6 +41,29 @@ npm install
 ng serve
 ```
 
-## Desenvolvimento
+## Functional Requirements
 
-Este projeto foi desenvolvido como um desafio técnico para demonstrar a integração entre um backend em .NET e um frontend em Angular.
+- **User Account Management**: Users can create accounts with name, date of birth, email/login, and password
+- **Password Reset**: Users can reset their password via email
+- **Authentication**: Login system using email and password
+- **Book Catalog**: Personal catalog of books for each authenticated user
+- **Book Registration**: Register books with title, ISBN, genre (select), author, publisher (select), synopsis (max 5000 characters), and book photo (IFormFile)
+- **Book Search**: Search books by title, ISBN, author, publisher, or genre (partial or complete matches)
+- **Book Management**: List, update, and delete registered books
+- **PDF Reports**: Generate PDF reports with all registered books per logged user
+
+## Non-Functional Requirements
+
+- **Data Validation**: Proper validation for all input fields
+- **Usability**: Good usability and ease of operation
+- **Architecture**: Layered architecture with Angular frontend and .NET Core Web API backend
+- **Database**: Entity Framework Core (Code First) with SQL Server
+- **Framework**: .NET Core 8+ / C#
+
+## Architecture
+
+The project follows a layered architecture with clear separation of responsibilities:
+
+- **Frontend (Angular)**: Responsive user interface consuming REST API
+- **Backend (Web API)**: RESTful API with business logic and data persistence
+- **Database (SQL Server)**: Data storage managed by Entity Framework Core
