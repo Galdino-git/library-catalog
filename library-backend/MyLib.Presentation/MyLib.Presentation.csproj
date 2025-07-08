@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MyLib.Application\MyLib.Application.csproj" />
     <ProjectReference Include="..\MyLib.Domain\MyLib.Domain.csproj" />
   </ItemGroup>
