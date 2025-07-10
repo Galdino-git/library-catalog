@@ -53,11 +53,6 @@ namespace MyLib.Infrastructure.Data
 
                 entity.Property(e => e.Email).IsRequired().HasMaxLength(100);
                 entity.HasIndex(e => e.Email).IsUnique();
-
-                entity.HasMany(e => e.Books)
-                    .WithOne()
-                    .HasForeignKey(b => b.RegisteredByUserId)
-                    .OnDelete(DeleteBehavior.NoAction);
             });
         }
     }
