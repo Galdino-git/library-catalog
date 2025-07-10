@@ -10,7 +10,7 @@
         public int PublishedYear { get; set; }
         public string Synopsis { get; set; } = string.Empty;
         public byte[]? CoverImage { get; set; } = null;
-        public string CoverImageUrl { get; set; } = string.Empty;
+        public string? CoverImageUrl { get; set; }
 
         public Guid? RegisteredByUserId { get; set; }
         public User? RegisteredByUser { get; set; }
