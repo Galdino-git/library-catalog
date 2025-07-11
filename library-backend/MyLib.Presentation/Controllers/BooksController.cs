@@ -19,8 +19,7 @@ namespace MyLib.Presentation.Controllers
         /// Registers a new book in the system.
         /// </summary>
         /// <param name="command">The command containing the details of the book to be registered.</param>
-        /// <returns>An <see cref="IActionResult"/> indicating the result of the operation. Returns <see cref="CreatedAtActionResult"/>
-        /// if the operation is successful.</returns>
+        /// <returns>The ID of the created book.</returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -42,6 +41,10 @@ namespace MyLib.Presentation.Controllers
         {
             var query = new GetBookByIdQuery { Id = id };
             var book = await _mediator.Send(query);
+
+            if (book == null)
+                return NotFound();
+
             return Ok(book);
         }
 
@@ -50,7 +53,7 @@ namespace MyLib.Presentation.Controllers
         /// </summary>
         /// <param name="id">The ID of the book to update.</param>
         /// <param name="command">The command containing the updated book details.</param>
-        /// <returns>An <see cref="IActionResult"/> indicating the result of the operation.</returns>
+        /// <returns>No content if the update is successful.</returns>
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -66,7 +69,7 @@ namespace MyLib.Presentation.Controllers
         /// Deletes a book by its ID.
         /// </summary>
         /// <param name="id">The ID of the book to delete.</param>
-        /// <returns>An <see cref="IActionResult"/> indicating the result of the operation.</returns>
+        /// <returns>No content if the deletion is successful.</returns>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -93,11 +96,7 @@ namespace MyLib.Presentation.Controllers
         {
             var query = new GetBooksListQuery
             {
-                Title = filter.Title,
-                Author = filter.Author,
-                ISBN = filter.ISBN,
-                Gender = filter.Gender,
-                Publisher = filter.Publisher,
+                Filter = filter,
                 Page = page,
                 PageSize = pageSize
             };

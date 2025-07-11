@@ -4,6 +4,7 @@
     {
         IUserRepository UserRepository { get; }
         IBookRepository BookRepository { get; }
+        IPasswordResetRequestRepository PasswordResetRepository { get; }
 
         Task<int> SaveChangesAsync();
     }

@@ -1,5 +1,3 @@
-using MediatR;
-
 namespace MyLib.Application.Handlers.Books.Commands.UpdateBook
 {
     public class UpdateBookCommand : IRequest

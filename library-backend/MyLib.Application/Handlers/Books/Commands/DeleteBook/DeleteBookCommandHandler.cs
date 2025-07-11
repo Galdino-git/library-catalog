@@ -1,5 +1,4 @@
-using MediatR;
-using Microsoft.Extensions.Logging;
+using MyLib.Domain.Entities;
 using MyLib.Domain.IRepositories;
 
 namespace MyLib.Application.Handlers.Books.Commands.DeleteBook
@@ -13,7 +12,7 @@ namespace MyLib.Application.Handlers.Books.Commands.DeleteBook
         {
             _logger.LogInformation("Starting book deletion for ID: {BookId}", request.Id);
 
-            var existingBook = await _unitOfWork.BookRepository.GetByIdAsync(request.Id);
+            Book? existingBook = await _unitOfWork.BookRepository.GetByIdAsync(request.Id);
             if (existingBook == null)
             {
                 _logger.LogWarning("Book with ID {BookId} not found for deletion", request.Id);

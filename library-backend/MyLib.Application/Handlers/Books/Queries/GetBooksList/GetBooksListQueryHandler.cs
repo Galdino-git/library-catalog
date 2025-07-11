@@ -1,11 +1,5 @@
-using AutoMapper;
-using MediatR;
-using Microsoft.Extensions.Logging;
 using MyLib.Application.DTOs;
-using MyLib.Domain.Entities;
-using MyLib.Domain.Filter;
 using MyLib.Domain.IRepositories;
-using System.Linq;
 
 namespace MyLib.Application.Handlers.Books.Queries.GetBooksList
 {
@@ -17,31 +11,19 @@ namespace MyLib.Application.Handlers.Books.Queries.GetBooksList
 
         public async Task<PaginatedResult<BookDetailsDto>> Handle(GetBooksListQuery request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Searching for books list. Page: {Page}, Size: {PageSize}", request.Page, request.PageSize);
+            var (totalCount, books) = await _unitOfWork.BookRepository.GetByFilterAsync(request.Filter, request.Page, request.PageSize);
 
-            var filter = new BookFilter
-            {
-                Title = request.Title,
-                Author = request.Author,
-                ISBN = request.ISBN,
-                Gender = request.Gender,
-                Publisher = request.Publisher
-            };
+            _logger.LogInformation("Showing {PaginatedCount} from {Count} total books", books.Count(), totalCount);
 
-            var books = await _unitOfWork.BookRepository.GetByFilterAsync(filter, request.Page, request.PageSize);
-
-            _logger.LogInformation("Found {Count} books", books.Count());
-
-            // Use AutoMapper to map books to DTOs
             var bookDtos = _mapper.Map<IEnumerable<BookDetailsDto>>(books).ToList();
 
             return new PaginatedResult<BookDetailsDto>
             {
                 Items = bookDtos,
-                TotalCount = bookDtos.Count, // Simplified - ideally would have separate total count
+                TotalCount = totalCount,
                 Page = request.Page,
                 PageSize = request.PageSize
             };
         }
     }
-} 
+}

@@ -1,7 +1,7 @@
 using FluentValidation;
 using MyLib.Application.Handlers.Books.Commands.DeleteBook;
 
-namespace MyLib.Application.Handlers.Validation
+namespace MyLib.Application.Validation
 {
     public class DeleteBookCommandValidator : AbstractValidator<DeleteBookCommand>
     {

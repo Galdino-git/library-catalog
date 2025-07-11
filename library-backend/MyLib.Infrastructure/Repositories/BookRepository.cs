@@ -9,7 +9,7 @@ namespace MyLib.Infrastructure.Repositories
 {
     public class BookRepository(BookCatalogDbContext context, ILogger logger) : BaseRepository<Book>(context, logger), IBookRepository
     {
-        public async Task<IEnumerable<Book>> GetByFilterAsync(BookFilter filter, int pageNumber, int pageSize)
+        public async Task<(int, IEnumerable<Book>)> GetByFilterAsync(BookFilter filter, int pageNumber, int pageSize)
         {
             IQueryable<Book> query = _context.Books.AsQueryable();
 
@@ -31,18 +31,20 @@ namespace MyLib.Infrastructure.Repositories
             if (filter.RegisteredByUserId.HasValue)
                 query = query.Where(b => b.RegisteredByUserId == filter.RegisteredByUserId);
 
-
             try
             {
-                return await query
+                int count = query.Count();
+                var books = await query
                     .Skip((pageNumber - 1) * pageSize)
                     .Take(pageSize)
                     .ToListAsync();
+
+                return (count, books);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error retrieving books by filter in {REPO}", typeof(BookRepository));
-                return [];
+                return (0, []);
             }
         }
     }

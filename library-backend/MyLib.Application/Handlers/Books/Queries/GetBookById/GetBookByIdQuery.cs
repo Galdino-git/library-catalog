@@ -1,4 +1,3 @@
-using MediatR;
 using MyLib.Application.DTOs;
 
 namespace MyLib.Application.Handlers.Books.Queries.GetBookById
