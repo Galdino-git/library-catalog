@@ -1,15 +1,11 @@
-using MediatR;
 using MyLib.Application.DTOs;
+using MyLib.Domain.Filter;
 
 namespace MyLib.Application.Handlers.Books.Queries.GetBooksList
 {
     public class GetBooksListQuery : IRequest<PaginatedResult<BookDetailsDto>>
     {
-        public string? Title { get; set; }
-        public string? Author { get; set; }
-        public string? ISBN { get; set; }
-        public IEnumerable<string>? Gender { get; set; }
-        public string? Publisher { get; set; }
+        public BookFilter Filter { get; set; } = new();
         public int Page { get; set; } = 1;
         public int PageSize { get; set; } = 10;
     }

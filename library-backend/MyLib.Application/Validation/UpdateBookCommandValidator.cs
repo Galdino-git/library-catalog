@@ -20,7 +20,7 @@ namespace MyLib.Application.Validation
 
             RuleFor(x => x.ISBN)
                 .NotEmpty().WithMessage("ISBN is required.")
-                .MaximumLength(20).WithMessage("ISBN must not exceed 20 characters.");
+                .MaximumLength(20).WithMessage("ISBN must not exceed 13 characters.");
 
             RuleFor(x => x.Publisher)
                 .NotEmpty().WithMessage("Publisher is required.")

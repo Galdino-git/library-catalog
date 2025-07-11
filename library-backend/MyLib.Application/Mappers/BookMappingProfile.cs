@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MyLib.Application.DTOs;
+﻿using MyLib.Application.DTOs;
 using MyLib.Application.Handlers.Books.Commands.RegisterBook;
 using MyLib.Application.Handlers.Books.Commands.UpdateBook;
 using MyLib.Domain.Entities;

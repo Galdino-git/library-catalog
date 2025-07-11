@@ -1,13 +1,12 @@
-using MediatR;
-using Microsoft.Extensions.Logging;
 using MyLib.Application.DTOs;
 using MyLib.Domain.IRepositories;
 
 namespace MyLib.Application.Handlers.Books.Queries.GetBookById
 {
-    public class GetBookByIdQueryHandler(IUnitOfWork unitOfWork, ILogger<GetBookByIdQueryHandler> logger) : IRequestHandler<GetBookByIdQuery, BookDetailsDto>
+    public class GetBookByIdQueryHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<GetBookByIdQueryHandler> logger) : IRequestHandler<GetBookByIdQuery, BookDetailsDto>
     {
         private readonly IUnitOfWork _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+        private readonly IMapper _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         private readonly ILogger<GetBookByIdQueryHandler> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
         public async Task<BookDetailsDto> Handle(GetBookByIdQuery request, CancellationToken cancellationToken)
@@ -24,21 +23,7 @@ namespace MyLib.Application.Handlers.Books.Queries.GetBookById
 
             _logger.LogInformation("Book found successfully. ID: {BookId}, Title: {Title}", book.Id, book.Title);
 
-            return new BookDetailsDto
-            {
-                Id = book.Id,
-                Title = book.Title,
-                Author = book.Author,
-                ISBN = book.ISBN,
-                Gender = book.Gender,
-                Publisher = book.Publisher,
-                PublishedYear = book.PublishedYear,
-                Synopsis = book.Synopsis,
-                CoverImage = book.CoverImage,
-                CoverImageUrl = book.CoverImageUrl,
-                RegisteredByUserName = book.RegisteredByUser?.Username ?? string.Empty,
-                LastUpdated = book.UpdatedAt ?? book.CreatedAt
-            };
+            return _mapper.Map<BookDetailsDto>(book);
         }
     }
 }

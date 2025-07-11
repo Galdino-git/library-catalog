@@ -1,7 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
-using Microsoft.Extensions.Logging;
-using MyLib.Domain.Entities;
+﻿using MyLib.Domain.Entities;
 using MyLib.Domain.IRepositories;
 
 namespace MyLib.Application.Handlers.Books.Commands.RegisterBook

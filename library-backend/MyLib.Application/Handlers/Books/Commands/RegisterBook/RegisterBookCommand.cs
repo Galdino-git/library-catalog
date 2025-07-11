@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace MyLib.Application.Handlers.Books.Commands.RegisterBook
+﻿namespace MyLib.Application.Handlers.Books.Commands.RegisterBook
 {
     public class RegisterBookCommand : IRequest<Guid>
     {
