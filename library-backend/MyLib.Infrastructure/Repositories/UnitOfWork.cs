@@ -11,6 +11,7 @@ namespace MyLib.Infrastructure.Repositories
 
         public IUserRepository UserRepository { get; private set; }
         public IBookRepository BookRepository { get; private set; }
+        public IPasswordResetRequestRepository PasswordResetRepository { get; private set; }
 
         public UnitOfWork(BookCatalogDbContext context, ILoggerFactory loggerFactory)
         {
@@ -19,6 +20,7 @@ namespace MyLib.Infrastructure.Repositories
 
             UserRepository = new UserRepository(_context, _logger);
             BookRepository = new BookRepository(_context, _logger);
+            PasswordResetRepository = new PasswordResetRequestRepository(_context, _logger);
         }
 
         public async Task<int> SaveChangesAsync()
