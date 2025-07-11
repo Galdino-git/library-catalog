@@ -40,7 +40,7 @@ export class App implements OnInit {
       case 'pt-br':
         return 'https://flagcdn.com/16x12/br.png';
       case 'en-us':
-        return 'https://flagcdn.com/16x12/gb.png';
+        return 'https://flagcdn.com/16x12/us.png';
       default:
         return '';
     }

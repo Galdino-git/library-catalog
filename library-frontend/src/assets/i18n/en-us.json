@@ -11,5 +11,35 @@
     "HOME": {
         "WELCOME_MESSAGE": "Welcome to MyLib",
         "DESCRIPTION": "This project is a Library Catalog application designed to help users browse and manage a collection of books. It provides detailed information about each book, making it easy to search, view, and organize your library efficiently."
+    },
+    "REGISTER": {
+        "TITLE": "Register Your Book",
+        "SUCCESS_MESSAGE": "Book registered successfully!",
+        "IMAGE_ERROR_MESSAGE": "Error loading image. Please select a valid image.",
+        "ERROR_MESSAGE": "Error registering book. Please try again."
+    },
+    "BOOK": {
+        "TITLE": "Title",
+        "AUTHOR": "Author",
+        "PUBLISHER": "Publisher",
+        "YEAR": "Publication Year",
+        "GENRE": "Genre",
+        "SYNOPSIS": "Synopsis",
+        "COVER_IMAGE": "Cover Image"
+    },
+    "PLACEHOLDER": {
+        "BOOK_TITLE": "The Little Prince",
+        "BOOK_ISBN": "ISBN (10 or 13 digits)",
+        "BOOK_AUTHOR": "Antoine de Saint-Exupéry",
+        "BOOK_PUBLISHER": "Choose the publisher",
+        "BOOK_YEAR": "1943",
+        "BOOK_GENRE": "Select the genre",
+        "BOOK_SYNOPSIS": "The story follows a young prince who visits various planets, including Earth, and addresses themes of loneliness, friendship, love, and loss. Despite its style as a children's book, The Little Prince makes observations about life, adults, and human nature.",
+        "BOOK_COVER_IMAGE": "Upload cover image"
+    },
+    "BUTTON": {
+        "SUBMIT": "Submit",
+        "CANCEL": "Cancel",
+        "CLEAR": "Clear Fields"
     }
 }
